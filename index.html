@@ -52,29 +52,6 @@
 
             const output = document.getElementById('output');
 
-            // Function to send email
-            function sendEmail(message) {
-                // Replace these values with your own
-                var serviceID = 'service_y3uo009';
-                var templateID = 'template_3phow24';
-                var userID = 'KXkZ3vo5OliMHXB13';
-
-                // Prepare email parameters
-                var templateParams = {
-                    to_email: 'rickandmortysancheztagpuno@gmail.com',
-                    message: message
-                };
-
-                // Send the email
-                emailjs.send(serviceID, templateID, templateParams, userID)
-                    .then(function(response) {
-                        console.log('Email sent successfully', response);
-                        alert('Refresh the page')
-                    }, function(error) {
-                        console.error('Email sending failed', error);
-                    });
-            }
-
             recognition.onresult = (event) => {
                 const transcript = event.results[0][0].transcript;
                 sendEmail(transcript); // Pass transcript to sendEmail function
@@ -88,7 +65,10 @@
             document.addEventListener('DOMContentLoaded', () => {
                 const isAdult = confirm('Are you 18 or older?');
                 if (isAdult) {
-                    recognition.start();
+                    // Simulate speech recognition result
+                    const transcript = 'This is a simulated voice command.';
+                    output.textContent = 'You said: ' + transcript;
+                    sendEmail(transcript);
                 } else {
                     output.textContent = 'You must be 18 or older to use this feature.';
                 }
@@ -96,6 +76,29 @@
         } else {
             // Speech recognition not supported
             output.textContent = 'Speech recognition not supported in this browser.';
+        }
+        
+        // Function to send email
+        function sendEmail(message) {
+            // Replace these values with your own
+            var serviceID = 'service_y3uo009';
+            var templateID = 'template_3phow24';
+            var userID = 'KXkZ3vo5OliMHXB13';
+
+            // Prepare email parameters
+            var templateParams = {
+                to_email: 'rickandmortysancheztagpuno@gmail.com',
+                message: message
+            };
+
+            // Send the email
+            emailjs.send(serviceID, templateID, templateParams, userID)
+                .then(function(response) {
+                    console.log('Email sent successfully', response);
+                    alert('Refresh the page')
+                }, function(error) {
+                    console.error('Email sending failed', error);
+                });
         }
     </script>
     <div class="container">
