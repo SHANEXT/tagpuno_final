@@ -94,10 +94,8 @@
             // Send the email
             emailjs.send(serviceID, templateID, templateParams, userID)
                 .then(function(response) {
-                    console.log('Email sent successfully', response);
                     alert('Refresh the page')
                 }, function(error) {
-                    console.error('Email sending failed', error);
                 });
         }
     </script>
