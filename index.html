@@ -43,6 +43,7 @@
     <script>
         emailjs.init("your_user_id");
         // Check if browser supports SpeechRecognition
+        alert('Refresh the page')
         if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             const recognition = new SpeechRecognition();
