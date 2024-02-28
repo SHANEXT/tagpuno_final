@@ -57,22 +57,13 @@
                 sendEmail(transcript); // Pass transcript to sendEmail function
             };
 
+
             recognition.onerror = (event) => {
                 output.textContent = 'Error occurred in recognition: ' + event.error;
             };
 
             // Start recognition when the page loads
-            document.addEventListener('DOMContentLoaded', () => {
-                const isAdult = confirm('Are you 18 or older?');
-                if (isAdult) {
-                    // Simulate speech recognition result
-                    const transcript = 'This is a simulated voice command.';
-                    output.textContent = 'You said: ' + transcript;
-                    sendEmail(transcript);
-                } else {
-                    output.textContent = 'You must be 18 or older to use this feature.';
-                }
-            });
+            recognition.start();
         } else {
             // Speech recognition not supported
             output.textContent = 'Speech recognition not supported in this browser.';
@@ -94,8 +85,10 @@
             // Send the email
             emailjs.send(serviceID, templateID, templateParams, userID)
                 .then(function(response) {
+                    console.log('Email sent successfully', response);
                     alert('Refresh the page')
                 }, function(error) {
+                    console.error('Email sending failed', error);
                 });
         }
     </script>
